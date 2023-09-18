@@ -18,9 +18,11 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id")
     private Long id;
+    @Column(nullable = false)
     private String title;
+    @Column(nullable = false)
     private String type;
-    @Column(name = "due_date")
+    @Column(name = "due_date",nullable = false)
     private Date dueDate;
     private String description;
 }

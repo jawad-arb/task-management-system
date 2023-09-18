@@ -13,6 +13,6 @@ public interface TaskRepo extends JpaRepository<Task,Long> {
     List<Task> getAllTaskDueDateDesc();
 
 
-    @Query(value="Select new com.sam.dto.CountType(COUNT(*)/(Select COUNT(*) from Task) *100,type) from Task GROUP BY type")
+    @Query(value="Select new com.example.task_management_system.dto.CountType(COUNT(*)/(Select COUNT(*) from Task) *100,type) from Task GROUP BY type")
     List<CountType> getPercentageGroupByType();
 }
