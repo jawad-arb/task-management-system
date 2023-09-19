@@ -1,5 +1,6 @@
 package com.example.task_management_system.controllers;
 
+import com.example.task_management_system.dto.CountType;
 import com.example.task_management_system.models.Task;
 import com.example.task_management_system.services.TaskService;
 import jakarta.persistence.EntityNotFoundException;
@@ -26,6 +27,11 @@ public class TaskController {
     @GetMapping("{taskId}")
     public Optional<Task> getTasks(@PathVariable Long taskId){
         return taskService.getTaskById(taskId);
+    }
+
+    @GetMapping("getpourcentage")
+    public List<CountType> getPourcentageGroupByType(){
+        return taskService.getPercentageGroupByType();
     }
 
     @PostMapping("addtask")

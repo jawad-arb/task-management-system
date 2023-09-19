@@ -9,10 +9,11 @@ import java.util.List;
 
 public interface TaskRepo extends JpaRepository<Task,Long> {
 
+    // get tasks with order desc last ---> first
     @Query(value = "SELECT * FROM task order by due_date desc",nativeQuery = true)
     List<Task> getAllTaskDueDateDesc();
 
 
-    @Query(value="Select new com.example.task_management_system.dto.CountType(COUNT(*)/(Select COUNT(*) from Task) *100,type) from Task GROUP BY type")
+    @Query(value="Select new com.example.task_management_system.dto.CountType(COUNT(*)/(Select COUNT(*) from Task)*100 ,type) from Task GROUP BY type")
     List<CountType> getPercentageGroupByType();
 }
